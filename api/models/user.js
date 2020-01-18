@@ -2,32 +2,24 @@ const mongoose = require('mongoose');
 
 const UserSchema = mongoose.Schema({
 	_id: mongoose.Schema.Types.ObjectId,
-	firstname: {
+	name: {
 		type: String,
 		required: true,
-	},
-	lastname: {
-		type: String,
-		required: true,
-	},
+	}
 	email: {
 		type: String,
 		required: true,
 		unique: true,
 	},
-	phone: {
-		type: Number,
+	govern_level: {
+		type: String,
+		required: true,
+	}
+	public_Address: {
+		type: String,
 		required: true,
 		unique: true,
 		
-	},
-	govt: {
-		type: String,
-		required: true,
-	},
-	department: {
-		type: String,
-		required: true,
 	},
 	password: {
 		type: String,

@@ -1,6 +1,6 @@
 const User = require('../models/user');
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 require('dotenv/config');
 
@@ -10,12 +10,10 @@ exports.signup_user = (req, res, next) => {
 		.then(result => {
 			const user = new User({
 				_id: new mongoose.Types.ObjectId(),
-				firstname: req.body.firstname,
-				lastname: req.body.lastname,
+				name: req.body.name,
 				email: req.body.email,
-				phone: req.body.phone,
-				govt: req.body.govt,
-				department: req.body.department,
+				govern_level:req.body.govern_level,
+				public_key: req.body.public_key,	
 				password: result,
 			});
 
@@ -67,6 +65,7 @@ exports.user_login = (req, res, next) => {
 							if (err) {
 								res.status(401).json({
 									message: 'Auth Successful',
+									type: result[0].govern_level,
 									error: err,
 								});
 							} else {
