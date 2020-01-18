@@ -13,7 +13,7 @@ exports.signup_user = (req, res, next) => {
 				name: req.body.name,
 				email: req.body.email,
 				govern_level:req.body.govern_level,
-				public_key: req.body.public_key,	
+				public_Address: req.body.public_Address,	
 				password: result,
 			});
 
@@ -40,8 +40,8 @@ exports.signup_user = (req, res, next) => {
 };
 
 exports.user_login = (req, res, next) => {
-	console.log(req.body.email);
 	
+	console.log(req.body);
 	User.find({ email: req.body.email })
 		.exec()
 		.then(result => {
@@ -64,13 +64,13 @@ exports.user_login = (req, res, next) => {
 						(err, token) => {
 							if (err) {
 								res.status(401).json({
-									message: 'Auth Successful',
-									type: result[0].govern_level,
+									message: 'Auth UnSuccessful',
 									error: err,
 								});
 							} else {
 								res.status(200).json({
 									message: 'Auth Successful',
+									type: result[0].govern_level,
 									Token: token,
 								});
 							}

@@ -5,7 +5,7 @@ const UserSchema = mongoose.Schema({
 	name: {
 		type: String,
 		required: true,
-	}
+	},
 	email: {
 		type: String,
 		required: true,
@@ -14,7 +14,7 @@ const UserSchema = mongoose.Schema({
 	govern_level: {
 		type: String,
 		required: true,
-	}
+	},
 	public_Address: {
 		type: String,
 		required: true,

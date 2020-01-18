@@ -3,9 +3,10 @@ const app = express();
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
+const cors=require('cors');
 
 require('dotenv/config');
-
+app.use(cors());
 app.use(morgan('dev'));
 
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -20,23 +21,9 @@ mongoose
 	});
 
 
-app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Headers', '*');
-	if (req.method === 'OPTIONS') {
-		res.header('Access-Control-Allow-Methods', '*');
-		return res.status(200).json({});
-	}
-	next();
-});
-
-const schemesRoute = require('./api/routes/schemes');
 const UserRoute = require('./api/routes/user');
-const DepartmentRoute = require('./api/routes/department');
 
-app.use('/schemes', schemesRoute);
 app.use('/user', UserRoute);
-app.use('/department',DepartmentRoute);
 app.use((req, res, next) => {
 	const error = new Error('Not Found');
 	error.status = 404;
