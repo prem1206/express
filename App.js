@@ -24,17 +24,18 @@ mongoose
 const UserRoute = require('./api/routes/user');
 const NotificationRoute = require('./api/routes/notification');
 const SchemeRoute = require('./api/routes/scheme');
+const DepartmentRoute = require('./api/routes/department');
+
 app.use('/user', UserRoute);
 app.use('/notification',NotificationRoute);
 app.use('/scheme',SchemeRoute);
+app.use('/department',DepartmentRoute);
 
 app.use((req, res, next) => {
 	const error = new Error('Not Found');
 	error.status = 404;
 	next(error);
 });
-
-
 
 app.use((error, req, res, next) => {
 	res.status(error.status || 500);

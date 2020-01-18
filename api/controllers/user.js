@@ -12,6 +12,7 @@ exports.signup_user = (req, res, next) => {
 				_id: new mongoose.Types.ObjectId(),
 				name: req.body.name,
 				email: req.body.email,
+				DeptID:req.body.DeptID,
 				govern_level:req.body.govern_level,
 				public_Address: req.body.public_Address,	
 				password: result,

@@ -11,6 +11,11 @@ const UserSchema = mongoose.Schema({
 		required: true,
 		unique: true,
 	},
+	DeptID: {
+		type: String,
+		required: true,
+		unique: true,
+	},
 	govern_level: {
 		type: String,
 		required: true,
