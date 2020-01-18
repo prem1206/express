@@ -22,8 +22,12 @@ mongoose
 
 
 const UserRoute = require('./api/routes/user');
-
+const NotificationRoute = require('./api/routes/notification');
+const SchemeRoute = require('./api/routes/scheme');
 app.use('/user', UserRoute);
+app.use('/notification',NotificationRoute);
+app.use('/scheme',SchemeRoute);
+
 app.use((req, res, next) => {
 	const error = new Error('Not Found');
 	error.status = 404;
