@@ -41,8 +41,6 @@ exports.signup_user = (req, res, next) => {
 };
 
 exports.user_login = (req, res, next) => {
-	
-	console.log(req.body);
 	User.find({ email: req.body.email })
 		.exec()
 		.then(result => {

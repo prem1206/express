@@ -49,8 +49,7 @@ exports.GET_DEPT_BYNO = (req, res, next) => {
 exports.add_department = (req, res, next) => {
 	const department = new Department({
 		DeptID: req.body.DeptID,
-		name: req.body.name,
-		Address: req.body.address,
+		name: req.body.name
 	});
 	department
 		.save()
@@ -58,7 +57,7 @@ exports.add_department = (req, res, next) => {
 			console.log(result);
 			res.status(201).json({
 				message: 'department Added',
-				response: result,
+				response: result
 			});
 		})
 		.catch(err => {

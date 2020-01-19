@@ -9,10 +9,7 @@ const DeptSchema = mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	Address: {
-		type: String,
-		required: true,
-	},
+	
 });
 
 module.exports = mongoose.model('Department', DeptSchema);
